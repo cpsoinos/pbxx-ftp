@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ftp Servers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Brand</th>
+      <th>Url</th>
+      <th>Port</th>
+      <th>Username</th>
+      <th>Password</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ftp_servers.each do |ftp_server| %>
+      <tr>
+        <td><%= ftp_server.brand %></td>
+        <td><%= ftp_server.url %></td>
+        <td><%= ftp_server.port %></td>
+        <td><%= ftp_server.username %></td>
+        <td><%= ftp_server.password %></td>
+        <td><%= link_to 'Show', ftp_server %></td>
+        <td><%= link_to 'Edit', edit_ftp_server_path(ftp_server) %></td>
+        <td><%= link_to 'Destroy', ftp_server, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ftp Server', new_ftp_server_path %>

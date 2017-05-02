@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Brand:</strong>
+  <%= @ftp_server.brand %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @ftp_server.url %>
+</p>
+
+<p>
+  <strong>Port:</strong>
+  <%= @ftp_server.port %>
+</p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @ftp_server.username %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @ftp_server.password %>
+</p>
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <span class="widget-title">Co-Op Reimbursement</span>
+      <div class="widget-content">
+        <p>Upload a CSV of retailer co-op claims to be processed by <%= @brand.name %>'s co-op processing company.</p>
+        <%= form_for @ftp_server, url: ftp_server_submit_csv_path(@ftp_server), method: :post do |f| %>
+          <%= f.label :csv, class: "btn btn-primary btn-file" do %>
+            Browse <%= f.file_field :csv %>
+          <% end %>
+          <%= f.submit "Submit", class: "btn btn-success" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<%= link_to 'Edit', edit_ftp_server_path(@ftp_server) %> |
+<%= link_to 'Back', ftp_servers_path %>
