@@ -17,7 +17,7 @@
   <tbody>
     <% @ftp_servers.each do |ftp_server| %>
       <tr>
-        <td><%= ftp_server.brand %></td>
+        <td><%= ftp_server.brand.name %></td>
         <td><%= ftp_server.url %></td>
         <td><%= ftp_server.port %></td>
         <td><%= ftp_server.username %></td>
