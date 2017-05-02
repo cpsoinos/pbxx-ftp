@@ -30,7 +30,7 @@ class CoOpReimbursementsSubmitter
   def upload_to_ftp
     Net::FTP.open(ftp_server.url, ftp_server.username, ftp_server.password) do |ftp|
       ftp.passive = true
-      ftp.putbinaryfile(tmp_file_path, "/IN/#{filename}")
+      ftp.putbinaryfile(tmp_file_path, "/TEST/#{filename}")
       ftp.quit
     end
   end
@@ -49,7 +49,7 @@ class CoOpReimbursementsSubmitter
 
   def verify_upload_success
     Net::FTP.open(ftp_server.url, ftp_server.username, ftp_server.password) do |ftp|
-      file_list = ftp.nlst("/IN")
+      file_list = ftp.nlst("/TEST")
       if filename.in?(file_list)
         ftp.quit
         return true
